@@ -1,0 +1,106 @@
+VCS: Sistema de Controle de Versão
+Snapshot: cópia instantânea
+Commits: é forma de salvar um estado ou versão do nosso código.
+HEAD: ponteiro de branchs mostra qual você está no momento.
+master: branchs padrão 
+HASH: criptografia algoritmo que cria um pequeno resumo de saída  bytes SHA-1.
+Branches: "ramos" são utilizados para desenvolver funcionalidade isoladas umas das outras. A branch master é a branch "padrão" quando você cria um repositório.
+blobs: versão armazenada de um arquivo.
+hotfix: ramificações de manutenção,método  usado para corrigir rapidamente erros em versões.
+
+Estados do Git
+untracke:
+trancked:
+commited:
+modified: Modificado recém alterado precisa ser add novamente.
+unstage:
+staged: Preparando precisa ser commit -m "", para ter a versão atualizada e acessível para os outros usuários.
+
+Testado: o arquivo modificado necessita ser pode ser passado para preparo, não testando, encadeado.
+
+Comandos
+
+git init: Para inicializar repositório Git cria um subdiretório .git, 
+git --bare: repositório de armazenamento não possível criar commits dentro desses repositórios apenas armazenar dados.
+git config:
+git config --local: realiza as operações na máquina de maneira casual, você terá que realiza-las para poder alterar os arquivos e commits.
+git config --global: deixar como padrão suas configurações de usuário.
+git config --local user.name ""
+git config --local user.email ""
+git config user.name: mostra qual usuário está logado no local de trabalho.
+git add . : rastreia todos os arquivos no diretório atual
+git add nomeDoArquivo.extensão: específica os arquivos que você quer monitorar e rastrear 
+git status: analisa o estado do repositório, untracked (não rastreado), unmodified, modified, staged.
+git commit -m "": ponto de alteração, -m "com mensagem". 
+git commit -a -m: git add e git commit de uma vez só, -m "com mensagem".
+git status -s ou git status-short: status de maneira resumida, A, significa arquivos adicionados na área de teste. MM, arquivos testados modificados e modificados novamente. M, arquivos modificados. ??, arquivos não rastreados.
+git commit --amend -m "nova mensagem" alterar a mensagem do ultimo commit
+git rm arquivo: remove arquivos faz com que eles não apareção no status caso antes de terem sido removido tenha sido commitados ou modificados.
+git rm --cache:
+git rm diretório/\*.extensão: remove todos os arquivos com essa extensão do diretório específico
+git mv n_antigo n_novo: renomear arquivos 
+git diff: Monitora alteraçõe
+git diff hash..hash: compara alterações entre as versões usando o hash.
+git diff branch..branch: compara alterações entre as versões usando o nome das branches.
+git log: histórico de alteração ordem cronológica reversa.
+git log branchs: o comando git log só o histórico do branchs atual, caso queira ver outra é preciso informar o nome do branchs desejado.
+git log -p: histórico detalhado de commits 
+git log --oneline: mostra o histórico em uma linha por commit 
+git log --stat:
+git log --pretty: histórico em formato alternativo.
+git log --pretty=format:  "%atributo": mostra somente o quê você quer sobre a alteração da commit, %s sujeito, %an autor, %cn autor commiter "última pessoa que atualizou o trabalho". (...).
+git log --graph: mostra ramificações branches das commits.
+git log --decorate: mostra em qual branchs você está usando.
+git reset HEAD arquivo: desfazer alterações após adiciona-las em commits.
+git reset --hard Hash: remove uma branch
+git restore arquivo: desfazer alterações do arquivo.
+git restore --stage arquivo: desfazer o estado atual do arquivo.
+git revert hash: Desfaz um commit, hash do arquivo que você quer desfazer Ex: "hj4hj5gjfg5d46jdd".
+git remote: exibe todos os diretórios remotos.
+git remote add reportório caminho: adiciona um repositório remoto.
+git fetch repositório branch: busca e puxa(adiciona) todos arquivos que você ainda não tem do servidor remoto para o seu repositório local de trabalho, porém não mescla com seus arquivos atuais eles não serão modificados isso deve ser feito de maneira manual.
+git push repositórioRemoto branch: empurra(envia) repositório local para o repositório remoto 
+git clone caminho: cópia todos arquivos para um outro diretório, caso queira entrar em um novo projeto.
+git pull arquivo ou repositório branch: puxa(adiciona) é mescla de maneira automática os arquivos do seu repositório remoto para o repositório local, modificando os arquivos existentes.
+git remote show  repositórioRemoto: 
+git remote rename n_antigo n_novo: alterar o nome do repositório 
+git remote remove repositório ou git remote rm: excluir repositório.
+git remote -v: mostrar o servidor de envio e recebimento
+git tag -a nome: Salva marcos, Cria uma versão do código (release) commitado no momento da execução desse comando.
+git tag: mostra todas as tags criadas.
+git tag -a nome -m "": 
+git config --global aliás.ex exemplo: configura um apelido ou abreviação para um comando específico da sua escolha. Com esse parâmetro  pode-se personalizar comandos com se fossem functions.
+git checkout : Atualizar os arquivos na árvore de trabalha, podendo transitar entre versões do código e alterar o estado de commits.
+git checkout branch: Troca de branch. 
+git checkout -b newbranch: cria uma branch e troca para a nova branch.
+git checkout -- nomeodoarquivo: desfazer alteração no arquivo.
+git checkout hash: cria uma nova branch, porém temporária ou seja que se fazer nela não será salvo, usando hash de uma das versões de commits criadas anteriormente em qualquer ponto do desenvolvimento do projeto.
+git switch newbranch-branch: Troca de branch 
+git switch -c branchsname: cria uma branch.
+git merge branchs: mescla  uma branch a outra para isso deve estar na branch que vai receber a outra mesclada. Mesclar teste a master, então entre na master e faz comando com o nome da teste.
+git branch -d  namebranchs: excluía branch local.
+git branch -m antigo novo: renomear branch
+git rebase branch: atualiza a branch
+git stash: Quando precisamos pausar o desenvolvimento de alguma funcionalidade, ou correção, antes de finalizar, salvar alteração temporária em parte outro local caso queira voltar aquela versão.
+git stash list: exibe a lista de alterações em caminhadas para o stash.
+git stash apply n_lista: Recupera as alterações feitas n_list, número na lista que indica a alteração que se deseja recuperar.
+git stash drop: remove alteração da lista.
+git stash pop: adiciona a alteração ao projeto e remove da lista do stash simultaneamente.
+
+Arquivos
+.gitignore: lista para ignorar arquivos ni local de trabalho.
+
+Edição de arquivos shell
+rm
+mv arquivo destino
+touch: touch nomedoArquivo.extensão cria arquivo
+ls -a: mostra arquivos ocultos
+
+Vi ou vim: vi NomeDoArquivo.
+a "entra no modo de edição"
+y "copia linha acima"
+p "colar"
+ESC "Sai do modo edição"
+:w "Salva o arquivo"
+:q "Fecha o arquivo"
+:x "Salva e fecha o arquivo" 
