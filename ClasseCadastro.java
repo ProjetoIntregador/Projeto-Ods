@@ -4,10 +4,10 @@ public class ClasseCadastro {
 	
 	private String nome;
 	private int idade;
-	private String gênero;
+	private String gÃªnero;
 	private double peso;
 	private double altura;
-	
+	private String zona;
 	
 	public String getNome() {
 		return nome;
@@ -21,11 +21,11 @@ public class ClasseCadastro {
 	public void setIdade(int string) {
 		this.idade = string;
 	}
-	public String getGênero() {
-		return gênero;
+	public String getGÃªnero() {
+		return gÃªnero;
 	}
-	public void setGênero(String gênero) {
-		this.gênero = gênero;
+	public void setGÃªnero(String gÃªnero) {
+		this.gÃªnero = gÃªnero;
 	}
 	public double getPeso() {
 		return peso;
@@ -39,11 +39,17 @@ public class ClasseCadastro {
 	public void setAltura(double altura) {
 		this.altura = altura;
 	}
+	public String getZona() {
+		return zona;
+	}
+	public void setZona(String zona) {
+		this.zona = zona;
+	}
 	
 	public void Impressao() {
-		System.out.println("\t=============IMC da Criança============\n"
+		System.out.println("\t=============IMC da Pessoa============\n"
 				+ "\n\tNome: " + nome + "\n\tIdade: " + idade
-				+ "\n\tGênero: " + gênero + "\n\tPeso: " + peso
+				+ "\n\tGÃªnero: " + gÃªnero + "\n\tPeso: " + peso
 				+ "\n\tAltura: " + altura 
 				+ "\n\t======================================="); 
 	}
